@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://halwnthflcc3"]
+
+[ext_resource type="Script" uid="uid://baq8s52l64sb" path="res://character_body_2d.gd" id="1_epypp"]
+[ext_resource type="Texture2D" uid="uid://tggapa5ex8ee" path="res://icon.svg" id="2_0hol4"]
+[ext_resource type="PackedScene" uid="uid://dhif753iuyef6" path="res://suelo.tscn" id="3_q6r6c"]
+[ext_resource type="Script" uid="uid://t4ewpth60hos" path="res://enemigo.gd" id="4_0hol4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aui74"]
+size = Vector2(11.173308, 25.119087)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
+
+[node name="Node2D" type="Node2D" unique_id=4675038]
+
+[node name="PJ" type="CharacterBody2D" parent="." unique_id=1621867135]
+position = Vector2(-97, -85)
+script = ExtResource("1_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PJ" unique_id=1120679533]
+position = Vector2(-0.5, 4)
+scale = Vector2(8.860402, 7.209008)
+shape = SubResource("RectangleShape2D_aui74")
+
+[node name="Sprite2D" type="Sprite2D" parent="PJ" unique_id=1886687197]
+scale = Vector2(0.6448339, 1.2943709)
+texture = ExtResource("2_0hol4")
+
+[node name="Suelo" parent="." unique_id=115549590 instance=ExtResource("3_q6r6c")]
+position = Vector2(-242, 17)
+scale = Vector2(2.5618176, 1.0042492)
+
+[node name="Enemigo" type="CharacterBody2D" parent="." unique_id=1799329401]
+position = Vector2(1922.9999, -97)
+scale = Vector2(5.7015796, 8.142055)
+script = ExtResource("4_0hol4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo" unique_id=208708903]
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemigo" unique_id=1179822606]
+scale = Vector2(0.13708201, 0.14517911)
+texture = ExtResource("2_0hol4")
+
+[node name="RayCast2D" type="RayCast2D" parent="Enemigo" unique_id=2114380004]
+position = Vector2(0.3507805, -0.24563867)
+target_position = Vector2(-26.483887, 0)
+
+[node name="Area2D" type="Area2D" parent="Enemigo" unique_id=260439401]

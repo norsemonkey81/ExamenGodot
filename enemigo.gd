@@ -21,7 +21,8 @@ func _physics_process(delta: float) -> void:
 func _on_area_muerte_2d_body_entered(body: Node2D) -> void:
 	if body.name=="PJ":
 		deshabilitar_colision()
-
+		velocity.x=0
+		queue_free()
 func deshabilitar_colision()-> void:
 	$CollisionShape2D.set_deferred("disabled", true)
 	$AreaMuerte2D.set_deferred("monitoring", false)

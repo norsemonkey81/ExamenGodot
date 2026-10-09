@@ -10,6 +10,9 @@ size = Vector2(11.173308, 25.119087)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vicex"]
+size = Vector2(20, 2.7536697)
+
 [node name="Node2D" type="Node2D" unique_id=4675038]
 
 [node name="PJ" type="CharacterBody2D" parent="." unique_id=1621867135]
@@ -45,4 +48,10 @@ texture = ExtResource("2_0hol4")
 position = Vector2(0.3507805, -0.24563867)
 target_position = Vector2(-26.483887, 0)
 
-[node name="Area2D" type="Area2D" parent="Enemigo" unique_id=260439401]
+[node name="AreaMuerte2D" type="Area2D" parent="Enemigo" unique_id=260439401]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo/AreaMuerte2D" unique_id=1724267765]
+position = Vector2(2.1409911e-05, -10.439627)
+shape = SubResource("RectangleShape2D_vicex")
+
+[connection signal="body_entered" from="Enemigo/AreaMuerte2D" to="Enemigo" method="_on_area_muerte_2d_body_entered"]
